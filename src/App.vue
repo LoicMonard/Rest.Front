@@ -7,7 +7,7 @@
           <span id="brand">REST</span>
         </el-col>
         <el-col class="right" :span="12" style="justify-content: flex-end">
-          Ok
+          <el-button round>Inscription</el-button>
         </el-col>
       </el-row>
     </el-header>
@@ -49,6 +49,10 @@ html, body {
     display: flex;
     align-items: center;
   }
+}
+
+.el-main {
+  height: calc(100vh - 60px);
 }
 
 #nav {
