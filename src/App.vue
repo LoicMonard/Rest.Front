@@ -53,6 +53,7 @@ html, body {
 
 .el-main {
   height: calc(100vh - 60px);
+  padding-top: 64px !important;
 }
 
 #nav {
