@@ -26,7 +26,7 @@
           :span="6"
           class="theme"
           v-for="theme in themes"
-          :key="theme">
+          :key="theme.name">
             <div class="icon">
               <Home 
                 :size="24"
@@ -35,9 +35,17 @@
             <span class="theme-title">
               {{ theme.name }}
             </span>
-            <el-button type="text">Parcourir</el-button>
+            <el-button 
+              type="text"
+              @click="switchTheme(theme.name)">
+              Parcourir
+            </el-button>
         </el-col>
       </el-row>
+    </el-row>
+
+    <el-row>
+      <router-view/>
     </el-row>
   </div>
 </template>
@@ -51,9 +59,15 @@ export default {
       themes: [
         { name: "Logements" },
         { name: "Administration" },
-        { name: "Formations" },
+        { name: "Formations" }
       ]
     }),
+    methods: {
+      switchTheme(name) {
+        console.log(name);
+        this.$router.push({ path: `/home/${name}` })
+      }
+    },
     components: {
       Home
     }
@@ -112,6 +126,7 @@ export default {
       flex-direction: column;
       margin-right: 20px;
       padding: 24px !important;
+      box-sizing: border-box;
       box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
       .icon {
         width: 60px;

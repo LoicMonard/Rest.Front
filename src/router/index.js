@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../views/Login.vue'
 import Home from '../views/Home.vue'
+import HelloWorld from '../components/HelloWorld.vue'
 import store from '../store'
 
 Vue.use(VueRouter)
@@ -16,7 +17,14 @@ const routes = [
     path: '/home',
     name: 'home',
     component: Home,
-    meta: { requiresAuth: true }
+    meta: { requiresAuth: true },
+    children: [
+      {
+        path: ':theme',
+        name: 'homeitem',
+        component: HelloWorld
+      }
+    ]
   }
 ]
 

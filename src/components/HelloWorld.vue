@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    Hey
+    {{$route.params.theme}}
     <el-button @click="visible = true">Button</el-button>
   </div>
 </template>
