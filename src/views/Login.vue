@@ -74,7 +74,6 @@ export default {
     display: flex;
     flex-direction: column;
     border-radius: 4px;
-    border: 1px solid #DCDFE6;
     .header {
       background: #c6e2ff;
       color: #fff;
