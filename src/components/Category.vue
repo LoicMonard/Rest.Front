@@ -13,14 +13,14 @@
         :span="4"
         class="sub-category"
         v-for="subCategory in subCategories"
-        :key="subCategory.name">
+        :key="subCategory.title">
         <div class="icon">
           <Laptop 
             :size="24"
             fillColor="#fff"/>
         </div>
         <span class="sub-category-title">
-          {{ subCategory.name }}
+          {{ subCategory.title }}
         </span>
         <el-button 
           type="text">
@@ -34,6 +34,7 @@
 
 <script>
 import Laptop from 'vue-material-design-icons/Laptop.vue';
+import axios from 'axios';
 
 export default {
   name: 'category',
@@ -44,6 +45,30 @@ export default {
       { name: "Sub name 3" }
     ]
   }),
+  watch: {
+    '$route.params.theme': {
+      handler: function(search) {
+        axios
+          .get(`http://192.168.1.45:5000/api/subcategory/parent/${this.$route.params.theme}`)
+          .then(response => {
+            console.log(response.result);
+            this.subCategories = response.data.result
+            }
+          )
+      },
+      deep: true,
+      immediate: true
+    }
+  },
+  mounted () {
+    axios
+      .get(`http://192.168.1.45:5000/api/subcategory/parent/${this.$route.params.theme}`)
+      .then(response => {
+        console.log(response.result);
+        this.subCategories = response.data.result
+        }
+      )
+  },
   components: {
     Laptop
   }

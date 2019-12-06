@@ -26,18 +26,21 @@
           :span="6"
           class="theme"
           v-for="theme in themes"
-          :key="theme.name">
+          :key="theme.title">
             <div class="icon">
               <Home 
                 :size="24"
                 fillColor="#fff"/>
             </div>
             <span class="theme-title">
-              {{ theme.name }}
+              {{ theme.title }}
+            </span>
+            <span class="theme-desc">
+              {{ theme.desc }}
             </span>
             <el-button 
               type="text"
-              @click="switchTheme(theme.name)">
+              @click="switchTheme(theme.categoryId)">
               Parcourir
             </el-button>
         </el-col>
@@ -52,6 +55,7 @@
 
 <script>
 import Home from 'vue-material-design-icons/HomeCityOutline.vue';
+import axios from 'axios'
 
 export default {
     name: 'home',
@@ -63,10 +67,19 @@ export default {
       ]
     }),
     methods: {
-      switchTheme(name) {
-        console.log(name);
-        this.$router.push({ path: `/home/${name}` })
+      switchTheme(id) {
+        console.log(id);
+        this.$router.push({ path: `/home/${id}` })
       }
+    },
+    mounted () {
+      axios
+        .get('http://192.168.1.45:5000/api/category')
+        .then(response => {
+          console.log(response.result);
+          this.themes = response.data.result
+          }
+        )
     },
     components: {
       Home
@@ -119,6 +132,7 @@ export default {
     }
     .themes {
       justify-content: start;
+      align-items: flex-start;
       width: 100%;
       margin: 0 !important;
     }
@@ -142,6 +156,11 @@ export default {
       }
       .theme-title {
         font-weight: 500;
+      }
+      .theme-desc {
+        font-weight: 400;
+        font-size: 14px;
+        color: #888;
       }
       button {
         text-align: left;

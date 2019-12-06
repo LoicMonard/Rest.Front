@@ -11,8 +11,8 @@
     </el-row>
     
     <el-row>
-      <el-col :span="9"/>
-      <el-col :span="6">
+      <el-col :span="8"/>
+      <el-col :span="8">
         <el-card class="login-card">
           <div class="header">
             <span>Login</span>
@@ -31,7 +31,7 @@
           </div>
         </el-card>
       </el-col>
-      <el-col :span="9"/>
+      <el-col :span="8"/>
     </el-row>
   </div>
 </template>

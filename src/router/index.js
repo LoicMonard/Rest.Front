@@ -17,13 +17,13 @@ const routes = [
     path: '/home',
     name: 'home',
     component: Home,
-    meta: { requiresAuth: true },
+    meta: { requiresAuth: false },
     children: [
       {
         path: ':theme',
         name: 'homeitem',
         component: Category,
-        meta: { requiresAuth: true },
+        meta: { requiresAuth: false },
       }
     ]
   }
