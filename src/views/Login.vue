@@ -38,7 +38,6 @@
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
 import Google from 'vue-material-design-icons/Google.vue';
 import { mapActions } from 'vuex'
 
@@ -55,7 +54,6 @@ export default {
     ])
   },
   components: {
-    HelloWorld,
     Google
   }
 }

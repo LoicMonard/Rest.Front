@@ -45,6 +45,7 @@ html, body {
 }
 
 .el-header {
+  border-bottom: 1px solid #ebebeb;
   #brand {
     font-weight: 800;
     font-size: 24px;

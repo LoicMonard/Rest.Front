@@ -44,7 +44,7 @@
       </el-row>
     </el-row>
 
-    <el-row>
+    <el-row class="category">
       <router-view/>
     </el-row>
   </div>
@@ -120,6 +120,7 @@ export default {
     .themes {
       justify-content: start;
       width: 100%;
+      margin: 0 !important;
     }
     .theme {
       display: flex;
@@ -128,6 +129,7 @@ export default {
       padding: 24px !important;
       box-sizing: border-box;
       box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+      border-radius: 18px;
       .icon {
         width: 60px;
         height: 60px;
@@ -145,6 +147,9 @@ export default {
         text-align: left;
       }
     }
+  }
+  .category {
+    justify-content: start;
   }
 }
 </style>
