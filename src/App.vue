@@ -67,7 +67,7 @@ html, body {
 
 .el-main {
   height: calc(100vh - 60px);
-  padding-top: 64px !important;
+  padding: 64px 15% 0 15% !important;
 }
 
 #nav {
