@@ -1,5 +1,5 @@
 <template>
-  <el-container id="app">
+  <el-container id="app" v-loading="loading">
     <el-header>
       <el-row>
         <el-col :span="12" style="text-align: left">
@@ -16,6 +16,20 @@
     </el-main>
   </el-container>
 </template>
+
+<script>
+import { mapGetters } from 'vuex'
+
+export default {
+  computed: {
+    // mix the getters into computed with object spread operator
+    ...mapGetters([
+      'loading'
+      // ...
+    ])
+  }
+}
+</script>
 
 <style lang="scss">
 html, body {
